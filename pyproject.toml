@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "carlaviz"
+version = "0.1.0"
+description = "CARLA 3D Visualization Tool - Real-time visualization for CARLA simulator"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+
+[project.authors]
+name = "CarlaViz Team"
+email = "carlaviz@example.com"
+
+[project.urls]
+Homepage = "https://github.com/carlaviz/carlaviz"
+Repository = "https://github.com/carlaviz/carlaviz.git"
+
+[project.scripts]
+carlaviz = "carlaviz.cli:main"
+
+[project.optional-dependencies]
+web = ["flask"]
+dev = ["pytest", "pytest-cov", "black", "flake8"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["carlaviz*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310']
+
+[tool.flake8]
+max-line-length = 88
+exclude = ["*.pyc", "__pycache__", ".git"]
